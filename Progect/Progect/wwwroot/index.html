@@ -2,9 +2,124 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title></title>
+    <title>Dottor House Dati</title>
 </head>
 <body>
+    <table>
+        <thead>
+            <tr>
+                <td colspan="2">Aggiungere dati di paziente</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Nome:</td>
+                <td><input id="txtNome" /></td>
+            </tr>
+            <tr>
+                <td>Cognome:</td>
+                <td><input id="txtCognome" /></td>
+            </tr>
+            <tr>
+                <td>Data di Nascita:</td>
+                <td><input id="txtDataNascita" /></td>
+            </tr>
+            <tr>
+                <td>Sesso:</td>
+                <td>
+                    <input type="radio" id="RadioSesso" />Femmina
+                    <input type="radio" id="RadioSesso" />Maschio
+                </td>
+            </tr>
+            <tr>
+                <td>Indirizzo:</td>
+                <td><input id="txtIndirizzo" /></td>
+            </tr>
+            <tr>
+                <td>Foto:</td>
+                <td><button onclick="myFunction()">scegliere la foto</button></td>
+            </tr>
+            <tr>
+                <td><button class="btn" onclick="aggiungerePaziente()">Aggiungi</button></td>
+            </tr>
+        </tbody>
+    </table>
+<br />
+    <table>
+       <thead>
+           <tr>
+               <td>Name</td>
+               <td>Cognome</td>
+               <td>Data di nascita</td>
+               <td>Dettagli<td>                            
+           </tr>           
+       </thead>
+        <tbody>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>                  
+                </td>
+            </tr>
+        </tbody >
+    </table>
+    <script src="script.js"></script>
+    <script src="jquery-3.3.1.js"></script>
+    <script>
+        $('body > table > thead >tr >td').css('fontSize', '30px');
+
+        function Paziente(id, nome, cognome, sesso, indirizzo, dataDiNascita) {
+            this.id = id;
+            this.nome = nome;
+            this.cognome = cognome
+            this.sesso = sesso;
+            this.indirizzo = indirizzo;
+            this.dataDiNascita = dataDiNascita;
+
+        }
+        var pazienti = [
+            new Paziente(1, "Marco", "Rossi", "M", "Monte san giovanni 10", ),
+            new Paziente(2, "Alberto", "Faust", "M", "Via commerciale 23", ),
+            new Paziente(3, "Piero", "Porta", "M", "Via udine 56", ),
+            new Paziente(4, "Federico", "Ponte", "M", "Via carducci 90", ),
+            new Paziente(5, "Marta", "Capriglia", "F", "Via miramare 234", ),
+            new Paziente(6, "Eli", "Lonza", "F", "Via stramare 56", ),
+            new Paziente(7, "Giorga", "Bosdachini", "F", "via giulia 34", ),
+            new Paziente(8, "Mery", "Lucconi", "F", "Via moreri 90", ),
+            new Paziente(9, "Sabrina", "Bianchi", "F", "San giusto 56", ),
+            new Paziente(10, "Silvia", "Lupo", "F", "Via mazini 13", ),
+        ];
+       
+
+        function myFunction() {
+            var x = document.createElement("INPUT");
+            x.setAttribute("type", "file");
+            document.body.appendChild(x);
+        }
+
+        function aggiungerePaziente() {
+            var newName = $('#txtNome').val();
+            var newCognome = $('#txtCognome').val();
+            var newDataNascita = $('#txtDataNascita').val();
+           // var newSesso = $('#RadioSesso').val();
+           // var newIndirizzo = $('#txtIndirizzo').val();
+
+            var newRow =
+                `<tr>
+                    <td>${newName}</td>
+                    <td>${newCognome}</td>
+                    <td>${newDataNascita}</td>                   
+                    <td><button class="btn">Dettagli</button></td>
+                </tr>`;
+
+            $('#tbody').append(newRow);
+            //('#newliata').append(newRow);
+
+        }
+
+
+    </script>
 
 </body>
 </html>
