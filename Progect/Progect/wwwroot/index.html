@@ -43,8 +43,8 @@
             <tr>
                 <td>Sesso:</td>
                 <td>
-                    <input type="radio" id="RadioSesso" value="Femmina" />Femmina
-                    <input type="radio" id="RadioSesso" value="Maschio" />Maschio
+                    <input type="radio" id="RadioSesso" name="RadioSesso" value="Femmina" />Femmina
+                    <input type="radio" id="RadioSesso" name="RadioSesso" value="Maschio" />Maschio
                 </td>
             </tr>
             <tr>
@@ -82,14 +82,13 @@
         </tbody >
     </table>
    
+
+
+
     <script src="script.js"></script>
     <script src="jquery-3.3.1.js"></script>
-
-
     <script>
-        $('body > table > thead >tr >td').css('fontSize', '30px');
-
-      
+        $('body > table > thead >tr >td').css('fontSize', '30px');    
 
       
      /*   function upLoadFoto() {
@@ -112,7 +111,7 @@
                     <td>${newCognome}</td>
                     <td>${newDataNascita}</td>  
                     <td>${newSesso}</td>  
-                    <td><img src="${newFoto}"></td>
+                    <td><img src="\Desktop\WEB-DESKTOP${newFoto}"></td>
                     <td><button class="btn" onclick="dettagli()">Dettagli</button></td>
                 </tr>`;
             $('#newPazienteRow').append(newRow);
